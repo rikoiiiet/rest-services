@@ -12,7 +12,7 @@
 - unarchive to some_folder
 - you can start defaultServer that comes with open liberty
 ```
-/<some_folder>/wlp/bin/server run
+/<some_folder>/wlp/bin/server start
 ```
 - or you can create your own server and start it
 ```
