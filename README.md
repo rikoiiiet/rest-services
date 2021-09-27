@@ -1,13 +1,13 @@
-# rest-services
+## rest-services
 
-1. prereqisites
+# 1. prereqisites
 - java 8 or higher
 - apache maven
 - git
 - open liberty server
 - db of choice
 
-2. setup as a regular bin
+# 2. setup as a regular bin
 - download open liberty https://openliberty.io/
 - unarchive to some_folder
 - you can start defaultServer that comes with open liberty
@@ -36,7 +36,7 @@ cp src/main/liberty/config/jcc-11.5.6.0.jar /<some_folder>/wlp/usr/servers/<some
 ```
 cp target/*.war /<some_folder>/wlp/usr/servers/<some_server>/dropins
 ```
-3. run as docker image
+# 3. run as docker image
 - download and run docker image with env variables
 ```
 docker run -d -e DB_SERVER=<db-serverName-or-IP> -e DB_PORT=<db-port> \
