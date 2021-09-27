@@ -23,6 +23,7 @@
 ```
 git clone https://github.com/<this-repo>/<this-app>.git
 cd <this-app>
+```
 - create artifact with maven
 ```
 mvn clean package
