@@ -1,0 +1,45 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+    <feature>jaxrs-2.1</feature>
+    <feature>jsonp-1.1</feature>
+    <!-- <feature>cdi-2.0</feature> --> <!-- enabled by appSecutity-3.0 -->
+    <feature>jpa-2.2</feature>
+    <feature>mpOpenAPI-2.0</feature>
+    <feature>appSecurity-3.0</feature>
+  </featureManager>
+
+  <variable name="default.http.port" defaultValue="5050" />
+  <variable name="default.https.port" defaultValue="5051" />
+
+  <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
+                id="defaultHttpEndpoint" host="*" />
+
+  <application location="rdpgestsv2.war" type="war" context-root="/"></application>
+
+  <!-- Derby Library Configuration -->
+  <library id="derbyJDBCLib">
+    <file name="${server.config.dir}/jcc-11.5.6.0.jar"/>
+  </library>
+
+  <!-- Datasource Configuration -->
+  <!-- tag::data-source[] -->
+  <dataSource id="eventjpadatasource" jndiName="jdbc/eventjpadatasource">
+    <jdbcDriver libraryRef="derbyJDBCLib" />
+    <properties.db2.jcc serverName="localhost" portNumber="50000"
+                        databaseName="test"
+                        user="db2inst1"
+                        password="foobar1234"/>
+  </dataSource>
+
+
+  <!-- end::data-source[] -->
+  <basicRegistry id="basic" realm="sample-grpc">
+     <user name="user1" password="user1pwd" />
+     <user name="user2" password="user2pwd" />
+     <group name="Role1">
+       <member name="user1"/>
+     </group>
+   </basicRegistry>
+
+</server>
