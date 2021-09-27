@@ -5,7 +5,7 @@
 - apache maven
 - git
 - open liberty server
-- db of cchoice
+- db of choice
 
 2. setup as a regular bin
 - download open liberty https://openliberty.io/
